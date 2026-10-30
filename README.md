@@ -44,7 +44,8 @@ int main()
 
         printf("\nEnter your choice (1-5): ");
         choice = readInt();
-        if (choice < 1 || choice > MENU_SIZE)
+
+        if (!(choice >= 1 && choice <= MENU_SIZE))
         {
             printf("Invalid choice!\n");
             return 0;
@@ -52,6 +53,7 @@ int main()
 
         printf("Enter quantity: ");
         quantity = readInt();
+
         if (quantity <= 0)
         {
             printf("Invalid quantity!\n");
@@ -92,6 +94,7 @@ void readWord()
         }
         c = getchar();
     }
+
     input[i] = '\0';
 }
 
@@ -123,6 +126,7 @@ int readInt()
     {
         return -1;
     }
+
     return value;
 }
 
@@ -147,6 +151,7 @@ int login()
 
         same = 1;
         i = 0;
+
         while (input[i] != '\0' || credentials[step][i] != '\0')
         {
             if (input[i] != credentials[step][i])
